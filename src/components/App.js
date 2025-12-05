@@ -1,13 +1,17 @@
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
-import './../styles/App.css';
+import UserDetails from "./UserDetails";
+import UserList from "./UserList";
 
-const App = () => {
+function App() {
   return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
+    <Router>
+      <Switch>
+        <Route exact path="/" component={UserList} />
+        <Route path="/users/:id" component={UserDetails} />  {/* fix: added / */}
+      </Switch>
+    </Router>
+  );
 }
 
-export default App
+export default App;
